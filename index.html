@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="src/imagens/favicon.ico" type="image/x-icon">
+    <title>Meu demonio favorito</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend=Deca:wght@300;400;500;600;700&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lexend Deca', sans-serif;
+        }
+
+        :root {
+            --white: #FFF;
+            --roxo: rgb(224, 176, 243);
+            --rosa: rgb(223, 112, 155);
+            --cinza: #C4C4C4;
+            --cinza-escuro: #343434;
+            --cinza-medio: #A7A7A7;
+            --preto: black;
+            --azul: #1B77F3;
+            --cinza-claro: #ECECEC;
+        }
+
+        main {
+            display: flex;
+        }
+
+        .login {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 500px;
+            min-height: 100vh;
+            padding: clamp(35px, 8%, 70px);
+        }
+
+        .wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        login-logo {
+            width: 130px;
+            margin-bottom: 80px;
+        }
+
+        .login_title {
+            color: var(--cinza-escuro);
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            border-bottom: 2px dashed var(--rosa);
+            padding: 10px;
+            width: 100%;
+        }
+
+        .login_label {
+            display: block;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .input {
+            width: 100%;
+            background-color: var(--cinza-claro);
+            border: 2px solid rgb(0, 0, 0, 0);
+            border-radius: 5px;
+            outline: none;
+            font-size: 0.9em;
+            padding: 25px 10px 10px;
+            font-weight: 600;
+            color: var(--cinza-escuro);
+        }
+
+        span {
+            position: absolute;
+            font-size: 0.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--cinza-medio);
+            margin: 20px;
+            cursor: text;
+            transition: all 200ms ease;
+        }
+
+        .input:focus {
+            background-color: var(--white);
+            border: 2px solid var(--rosa);
+        }
+
+        .login_label .span-active {
+            font-size: 0.7em;
+            margin: 8px 10px;
+        }
+        .genero {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .gen {
+            appearance: none;
+            width: 100px;
+            height: 40px;
+            background-color: var(--cinza-claro);
+            margin-right: 8px;
+            border-radius: 5px;
+            border: 1px solid var(--cinza);
+            cursor: pointer;
+        }
+
+        .login_label--checkbox {
+            width: 100%;
+            margin: 15px 0 50px;
+            font-size: 0.9em;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .input--checkbox {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background-color: var(--cinza-claro);
+            margin-right: 8px;
+            border-radius: 50%;
+            border: 1px solid var(--cinza);
+        }
+
+        .input--checkbox:checked {
+            background-color: palevioletred;
+            border: none;
+        }
+
+        .input--checkbox:checked::after {
+            content: "";
+            display: block;
+            width: 5px;
+            height: 10px;
+            border: 3px solid white;
+            border-width: 0 3px 3px 0;
+            margin: 2px 6px;
+            transform: rotate(45deg);
+        }
+
+        .login_button {
+            background-color: var(--rosa);
+            color: white;
+            font-weight: bolder;
+            font-size: 1em;
+            text-transform: capitalize;
+            width: 100%;
+            height: 45px;
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 40px;
+            cursor: pointer;
+        }
+
+        .login_link {
+            font-size: 0.8em;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--cinza-medio);
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .wallpaper {
+            width: 100%;
+            background-image: url('./src/imagens/capa-oficial2.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            flex: 1;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <section class="login">
+
+        <div class="wrapper">
+
+            <img src="login-logo" alt="">
+
+            <h1 class="login_title">Entrar</h1>
+
+            <label class="login_label">
+                <span>nome do usuario</span>
+                <input type="text" name="username" class="input">
+            </label>
+
+            <label class="login_label">
+                <span>senha</span>
+                <input type="password" name="password" class="input">
+            </label>
+
+            <div class="genero">
+                <button class="gen fem" onclick="selectGender(this)">Garota</button>
+                <button class="gen mas" onclick="selectGender(this)">Garoto</button>
+            </div>
+
+
+            <label class="login_label--checkbox">
+                <input type="checkbox" class="input--checkbox">
+                Manter login
+            </label>
+
+            <p class="error-message" id="error-message"></p>
+
+        </div>
+
+        <div class="wrapper">
+            <button type="button" class="login_button" onclick="validateForm()">jogar</button>
+
+
+            <a href="#" class="login_link">nao consegue clicar em sessao?</a>
+            <a href="#" class="login_link">criar conta</a>
+        </div>
+    </section>
+
+    <section class="wallpaper"></section>
+
+</main>
+
+<script>
+    const inputs = document.querySelectorAll('.input');
+
+    const handleFocus = ({ target }) => {
+        const span = target.previousElementSibling;
+        span.classList.add('span-active');
+    }
+
+    const handleFocusOut = ({ target }) => {
+
+        if(target.value == '') {
+            const span = target.previousElementSibling;
+            span.classList.remove('span-active');
+        }
+    }
+
+    inputs.forEach((input) => input.addEventListener('focus', handleFocus));
+    inputs.forEach((input) => input.addEventListener('focusout', handleFocusOut));
+
+    /*modificar cor botao*/
+    function selectGender(button) {
+        const buttons = document.querySelectorAll('.gen');
+        buttons.forEach(btn => {
+            btn.classList.remove('selected');
+            btn.style.backgroundColor = 'var(--cinza-claro)';
+            btn.style.color = 'var(--cinza-escuro)';
+        });
+        button.classList.add('selected');
+        button.style.backgroundColor = 'var(--rosa)';
+        button.style.color = 'white';
+    }
+
+    /*valida input*/
+    function validateForm() {
+        const usernameInput = document.querySelector('input[name="username"]');
+        const passwordInput = document.querySelector('input[name="password"]');
+        const genderButtons = document.querySelectorAll('.gen');
+        const checkBoxInput = document.querySelector('.input--checkbox');
+        const errorMessage = document.getElementById('error-message');
+
+        errorMessage.textContent = ''; // Limpa a mensagem de erro
+
+        // Verifica se o campo de nome de usuário está vazio
+        if (usernameInput.value.trim() === '') {
+            errorMessage.textContent = 'Por favor, preencha o campo de nome de usuário.';
+            return;
+        }
+
+        // Verifica se o campo de senha está vazio
+        if (passwordInput.value.trim() === '') {
+            errorMessage.textContent = 'Por favor, preencha o campo de senha.';
+            return;
+        }
+
+        // Verifica se pelo menos um botão de gênero está selecionado
+        if (![...genderButtons].some(btn => btn.classList.contains('selected'))) {
+            errorMessage.textContent = 'Por favor, selecione seu gênero.';
+            return;
+        }
+
+        // Verifica se a caixa de seleção foi marcada
+        if (!checkBoxInput.checked) {
+            errorMessage.textContent = 'Por favor, aceite os termos.';
+            return;
+        }
+
+        // Se todos os campos estiverem preenchidos e selecionados, a validação passa
+        // Aqui você pode adicionar o código para enviar o formulário ou realizar outras ações necessárias
+        // Redireciona para outra página
+        window.location.href = "./src/jogo.html";
+    }
+</script>
+</body>
+</html>

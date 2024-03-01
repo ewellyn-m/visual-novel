@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <title>Meu demonio favorito</title>
+</head>
+<body>
+    <main>
+            <div id="game-container-1">
+                <div id="titulo">
+                    <h1>Escolha sua aparência</h1>
+                </div>
+
+                <div class="lado">
+                    <div class="botao-cabelo-olhos">
+                        <p>Escolha sua aparência com cuidado</p>
+                        <div class="alinha-botao">
+                            <div class="botao" id="btn-cabelo">Cabelo</div>
+                            <div class="botao" id="btn-olhos">Olhos</div>
+                        </div>
+                    </div>
+                    <div class="imagem-personagem-jogador">
+                        <img src="./imagens/personagemF1C1.png" alt="" id="character-img">
+                        <button id="avancar">Avançar</button>
+                    </div>
+        
+                    <div class="selecao-visual" id="cabelo">
+                        <!-- Opções de cabelo -->
+                        <div onclick="selectClothing('./imagens/personagemF1C1.png')" class="clothing-option"><img src="./imagens/personagemF1C1.png" alt=""></div>
+                        <div onclick="selectClothing('./imagens/personagemF1C2.png')" class="clothing-option"><img src="./imagens/personagemF1C2.png" alt=""></div>
+                        <div onclick="selectClothing('./imagens/personagemF1C3.png')" class="clothing-option"><img src="./imagens/personagemF1C3.png" alt=""></div>
+                    </div>
+        
+                    <div class="selecao-visual" id="olhos" style="display: none;">
+                        <!-- Opções de olhos -->
+                        <div onclick="selectEyes('./imagens/personagemF1olhos.png')" class="eyes-option"><img src="./imagens/personagemF1olhos.png" alt=""></div>
+                        <div onclick="selectEyes('./imagens/personagemF1olhos2.png')" class="eyes-option"><img src="./imagens/personagemF1olhos2.png" alt=""></div>
+                        <div onclick="selectEyes('./imagens/personagemF1olhos3.png')" class="eyes-option"><img src="./imagens/personagemF1olhos3.png" alt=""></div>
+                        <div onclick="selectEyes('./imagens/personagemF1olhos4.png')" class="eyes-option"><img src="./imagens/personagemF1olhos4.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        <!-- começa o jogo -->
+            <div id="game-container-2">
+                <div class="chat-personagem">
+                    <p id="dialog-box"></p>
+                </div>
+                <img src="./imagens/Victor.png" alt="personagem" id="personagem-imagem">
+                <div id="choices">
+                    <button id="proximo-episodio">Próximo Episódio</button>
+                </div>
+                <img src="./imagens/carta-pronta2.png" alt="Papel na geladeira" class="extra-imagem" id="extra-imagem">
+            </div>
+
+            <!--novo episodio-->
+        <div class="next-epi">
+            <h1>Episodio 2</h1>
+            <p>quem é esse homem na minha casa, sera que ele vai me deixar em paz e voltar de onde veio?</p>
+        </div>
+    </main>
+
+    <script src="./jogo.js"></script>
+    </body>
+    </html> 
